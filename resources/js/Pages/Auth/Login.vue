@@ -46,14 +46,14 @@ export default {
         :error-messages="form.errors.email"
       />
       <div class="d-flex align-center justify-space-between">
-        <div class="text-subtitle-1 text-medium-emphasis">Password</div>
+        <div class="text-subtitle-1 text-medium-emphasis">Senha</div>
         <Link
           class="text-caption text-decoration-none text-blue"
           href="/forgot-password"
           rel="noopener noreferrer"
           target="_blank"
         >
-          Forgot password?</Link
+          Perdeu a Senha?</Link
         >
       </div>
       <v-text-field
@@ -67,13 +67,13 @@ export default {
         :error-messages="form.errors.password"
         @click:append-inner="showPassword = !showPassword"
       />
-      <v-checkbox v-model="form.remember" label="Remember me" />
+      <v-checkbox v-model="form.remember" label="Lembrar Senha" />
 
-      <v-btn :loading="form.processing" type="submit" block color="primary" class="mb-12">Login</v-btn>
+      <v-btn :loading="form.processing" type="submit" block color="primary" class="mb-12">Entrar</v-btn>
     </v-form>
     <v-card-text class="text-center">
       <Link class="text-blue text-decoration-none" href="/register">
-        Sign up now <v-icon icon="mdi-chevron-right" />
+        Cadastre-se <v-icon icon="mdi-chevron-right" />
       </Link>
     </v-card-text>
   </GuestLayout>

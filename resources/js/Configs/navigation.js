@@ -6,9 +6,14 @@ export default {
       to: '/dashboard',
     },
     {
-      title: 'People',
+      title: 'usuários',
       icon: 'mdi-account-group',
-      to: '/people',
+      to: '/users',
+    },
+    {
+      title: 'Planos',
+      icon: 'mdi-view-dashboard',
+      to: '/plans',
     },
   ],
 }

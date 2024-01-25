@@ -1,0 +1,51 @@
+gabarito para criar shell scripts
+
+criar user para samba
+
+sudo adduser --ingroup $tenant->id
+
+sudo adduser --no-create-home --disabled-password --disabled-login novo-2
+
+
+
+$adduser = "sudo useradd -g testes --no-create-home -s /bin/false teste-3 |echo ${login}:${password} |chpasswd";
+     $comando = shell_exec($adduser);
+
+     $addsmb = "sudo smbpasswd -a $login -s $password";
+     $comando1 = shell_exec($addsmb);
+
+
+
+resolve>>>>>>
+
+     echo -e "newpass\nnewpass" | (smbpasswd -s username)
+echo -e "newpass\nnewpass" | (passwd -r username)
+
+
+
+
+
+#!/bin/bash
+
+
+
+if [ $(id -u) -eq 0 ]; then
+
+username=$1
+password=$2
+
+egrep "^$username" /etc/passwd >/dev/null
+if [ $? -eq 0 ]; then
+    echo "$username já existe!"
+    exit 1
+else
+    pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+    #useradd -m -p $pass $username
+    useradd -m -p $pass $username
+
+    [ $? -eq 0 ] && echo "Usuário Criado com Sucesso!" || echo "Falha ao adicionar um usuário!"
+fi
+else
+echo "Somente o root pode adicionar um usuário ao sistema"
+exit 2
+ fi
